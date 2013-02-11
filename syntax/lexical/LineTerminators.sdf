@@ -1,0 +1,19 @@
+module lexical/LineTerminators
+exports
+  sorts
+    LineTerminator CarriageReturn EOF
+
+  lexical syntax
+    [\n]           -> LineTerminator
+    [\r][\n]       -> LineTerminator
+    CarriageReturn -> LineTerminator
+    EOF            -> LineTerminator
+
+    [\r]           -> CarriageReturn
+
+    -> EOF
+
+  lexical restrictions
+    CarriageReturn -/- [\n]
+    %% EOF may not be followed by any char
+    EOF -/- ~[]

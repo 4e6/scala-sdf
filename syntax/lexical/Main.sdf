@@ -1,0 +1,5 @@
+module lexical/Main
+imports
+  lexical/Keywords
+  lexical/LineTerminators
+  lexical/UnicodeEscapes
