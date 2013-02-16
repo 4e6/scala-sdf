@@ -1,4 +1,3 @@
-%% Grammar for the Scala language
 module Scala
 
 imports lexical/Main
@@ -6,13 +5,13 @@ imports lexical/Main
 exports
   lexical syntax
     [a-zA-Z][a-zA-Z0-9]*            -> ID
-    [\ \t\n\r] -> LAYOUT
 
   context-free start-symbols
     Start
 
   context-free syntax
-    "object" ID Definition*         -> Start {cons("Module")}
-    "{" Value* "}"                  -> Definition {cons("Entity")}
-    "val" ID ":" Type               -> Value {cons("Value")}
-    ID                              -> Type {cons("Type")}
+    "object" Id Definition*           -> Start {cons("Module")}
+    "val" Id                          -> Definition {cons("Definition")}
+%%    Value                           -> Definition {cons("Definition")}
+%%    "val" Id ":" Type               -> Value {cons("Value")}
+%%    ID                              -> Type {cons("Type")}

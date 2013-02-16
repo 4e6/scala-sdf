@@ -1,19 +1,20 @@
 module lexical/LineTerminators
 exports
   sorts
-    LineTerminator CarriageReturn EOF
+    LineTerminator EOF
 
+  %% LF: Unix-like
+  %% CRLF: Windows
+  %% CR: Mac OS
   lexical syntax
-    [\n]           -> LineTerminator
+    [\n\r]         -> LineTerminator
     [\r][\n]       -> LineTerminator
-    CarriageReturn -> LineTerminator
     EOF            -> LineTerminator
-
-    [\r]           -> CarriageReturn
 
     -> EOF
 
   lexical restrictions
-    CarriageReturn -/- [\n]
+    %% CR may not be followed by LF
+    [\r] -/- [\n]
     %% EOF may not be followed by any char
     EOF -/- ~[]

@@ -1,0 +1,8 @@
+module lexical/WhiteSpace
+exports
+  lexical syntax
+    %%[\u0020 \u0009 \u000D \u000A]
+    [\ \t\r\n] -> LAYOUT
+
+  context-free restrictions
+    LAYOUT? -/- [\ \t\r\n]

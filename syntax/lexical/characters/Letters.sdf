@@ -1,0 +1,12 @@
+module lexical/characters/Letters
+exports
+  lexical syntax
+  Lower         -> Letter
+  Upper         -> Letter
+  %% TODO:
+  %% Unicode Ll,Lu,Lt,Lo,Nl -> Letter
+  [A-Z\_\$]     -> Upper
+
+  [a-z]         -> Lower
+  %% unicode example
+  "α"           -> Lower

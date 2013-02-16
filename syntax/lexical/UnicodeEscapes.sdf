@@ -4,7 +4,4 @@ exports
 
   syntax
     "\\" [u]+ HexDigit HexDigit HexDigit HexDigit -> UnicodeEscape
-
-hiddens
-  variables
     [0-9A-Fa-f] -> HexDigit

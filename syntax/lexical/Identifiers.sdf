@@ -1,0 +1,31 @@
+module lexical/Identifiers
+imports
+  lexical/characters/Main
+  lexical/Keywords
+
+exports
+  sorts Id
+
+  lexical syntax
+    PlainId              -> Id
+    %% TODO: should be defined with StringLiteral
+    "`" Letter+ "`"      -> Id
+
+    Upper+ IdRest        -> PlainId
+    VarId                -> PlainId
+    Op+                  -> PlainId
+
+    Lower+ IdRest        -> VarId
+
+    Opchar+              -> Op
+
+    Letter               -> LetterOrDigit
+    Digit                -> LetterOrDigit
+    "_" Op+              -> Rest
+    LetterOrDigit+ Rest? -> IdRest
+
+    %% Excluding Keywords
+    Keyword              -> Id {reject}
+
+  lexical restrictions
+    Id -/- [0-9a-zA-Z\_\$]

@@ -45,11 +45,16 @@ exports
     ":"           -> Keyword
     "="           -> Keyword
     "=>"          -> Keyword
+    %% \u21D2
     "⇒"           -> Keyword
     "<-"          -> Keyword
+    %% \u2190
     "←"           -> Keyword
     "<:"          -> Keyword
     "<%"          -> Keyword
     ">:"          -> Keyword
     "#"           -> Keyword
     "@"           -> Keyword
+
+  lexical restrictions
+    Keyword -/- [0-9a-zA-Z\_\$]

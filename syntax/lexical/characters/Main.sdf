@@ -1,0 +1,15 @@
+module lexical/characters/Main
+imports
+  lexical/characters/Letters
+
+exports
+  lexical syntax
+    [0-9]           -> Digit
+
+    [\(\)\[\]\{\}]  -> Parenthesis
+
+    [\`\'\"\.\,\;]  -> Delimiter
+
+    [\32-\127] / [0-9a-zA-Z\_\$] / [\(\)\[\]\{\}] / [\`\'\"\.\,\;] -> Opchar
+    %% TODO:
+    %% Unicode Sm,So -> Opchar
